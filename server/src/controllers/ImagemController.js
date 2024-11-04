@@ -35,7 +35,7 @@ export async function criarImagem(req, res) {
 }
 
 
-export async function mostrarImagem(req, res) {
+export async function downloadImagem(req, res) {
     console.log('ImagemController :: Mostrando imagem');
 
     const { nomeImg } = req.params;
@@ -97,10 +97,9 @@ export async function deletarImagem(req,res) {
 }
 
 export async function mostrandoUmaImagem(req,res) {
-    console.log('ImagemController :: Mostando uma imagem')
-
+    console.log('ImagemController :: Mostrando uma imagem')
     const {id_imagem} = req.params;
- 
+    
     try {
         const [status,resposta] = await oneImagem(id_imagem);
         res.status(status).json(resposta); 
